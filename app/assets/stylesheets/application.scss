@@ -13,3 +13,25 @@
  *= require_self
  */
 @import "bootstrap";
+
+
+.hero-header {
+  background: url("hero.jpg") top right no-repeat;
+   background-size: cover;
+}
+.service::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: calc(100% - 45px);
+  top: 135px;
+  left: 0;
+  background: linear-gradient(rgba(43, 40, 37, .9), rgba(43, 40, 37, .9)), url("service.jpg") center center no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+.bg-offer{
+  background: linear-gradient(rgba(43, 40, 37, .9), rgba(43, 40, 37, .9)), url("offer.jpg") center center no-repeat;
+  background-size: cover;
+}
