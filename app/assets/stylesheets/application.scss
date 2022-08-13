@@ -43,8 +43,12 @@
   }
   .btn-primary{
     color: #000;
-    background-color: #eda555;
-    border-color: #ea9a3f
+    background-color: #E88F2A;
+    border-color: #E88F2A;
+  }
+  a{
+  color: #E88F2A;
+    text-decoration: none;
   }
 .section-title::before {
   position: absolute;
@@ -87,4 +91,26 @@
 }
 .text-primary{
   color: #E88F2A !important;
+}
+
+.aboutheader{
+  background: url("bg.jpg") top right no-repeat;
+  background-size: cover;
+}
+.contact::after{
+  position: absolute;
+  content: "";
+  background: url("bg.jpg") top right no-repeat;
+  background-size: cover; 
+  width: 100%;
+  height: calc(100% - 45px);
+  top: 135px;
+  left: 0;
+  z-index: -1;
+}
+.footer{
+  margin-top:90px ;
+}
+.margin{
+  margin-top:-3rem;
 }
