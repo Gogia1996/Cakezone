@@ -46,13 +46,46 @@
   .dropdown-menu a{
     color: black !important;
     font-weight: 400;
+    text-decoration: none;
   }
 </style>
 
 
+<!-- top header start -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 bg-secondary text-center py-3">
+      <div class="d-inline-flex align-items-center">
+        <i class="bi bi-envelope fs-1 text-primary me-3 icons"></i>
+        <div class="text-start">
+          <h6 class="text-uppercase mb-1">Email Us</h6>
+          <span>info@example.com</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 bg-primary border-inner py-3 d-inline-flex align-items-center">
+      <h1 class="m-0 text-uppercase text-white heading">
+        <i class="fa fa-birthday-cake fs-1 ms-5 text-dark me-3" aria-hidden="true"></i>CAKEZONE
+      </h1>
+    </div>
+    <div class="col-lg-4 bg-secondary text-center py-3">
+      <div class="d-inline-flex align-items-center justify-content-center">
+        <i class="bi bi-phone-vibrate fs-1 text-primary me-3 icons"></i>
+        <div class="text-start">
+          <h6 class="text-uppercase mb-1">Call Us</h6>
+          <span>+012 345 6789</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- top header end -->
+
+
+
 <!-- Navbar Start -->
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0 fixed-top">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -60,28 +93,32 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto mx-lg-auto py-0">
         <li class="nav-item">
-          <a class="nav-link active mr-2" aria-current="page" href="#">Home</a>
+          <%= link_to 'HOME',root_path(anchor:'home'), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About us</a>
+          <%= link_to  'ABOUT',about_index_path , class:"nav-link", id:"aboutpage"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Menu & pricing</a>
+          <%= link_to  'Menu & pricing',menu_index_path , class:"nav-link"%>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Master chef</a>
+          <%= link_to  'Master chef',master_chefs_index_path , class:"nav-link"%>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             PAGES
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li class="p-1"><a class="dropdown-item p-0" href="#">Our services</a></li>
-            <li class="p-1"><a class="dropdown-item p-0" href="#">Testimonials</a></li>
+            <li class="p-1">
+              <%= link_to  'Our services',services_index_path %>
+            </li>
+            <li class="p-1">
+              <%= link_to  'Testimonials',testimonials_index_path%>
+            </li>
           </ul>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">Contact us</a>
+          <%= link_to  'Contact us',contacts_index_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
           <%= link_to "Log in", new_user_session_path,  class:"text-white nav-link"%>

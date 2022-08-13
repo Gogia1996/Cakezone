@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
+  get 'testimonials/index'
+  get 'services/index'
+  get 'master_chefs/index'
+  get 'menu/index'
+  get 'about/index'
   resources :cakes
   get 'cakes/index'
   devise_for :users
