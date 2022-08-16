@@ -5,20 +5,16 @@
 //= require_tree .
 
 
-$(document).ready(function(){
-  $(".aboutheader").css('display', 'none');
-  $("#aboutpage").click(function() {
-    debugger;
-  $(".aboutheader").css('display', 'block');
-  });
-  $("#appimages").click(function(){
-    $(".appimg").show('1000');
-    $(".cardimg , .webimg").hide('3000');
+$(function() {
+  $(window).on("scroll", function() {
+    if($(window).scrollTop() > 120) {
+      //bottom arrow at scroll
+      $('.back-to-top').addClass('bottom');
+    } else {
+      //bottom arrow at top
+      $('.back-to-top').removeClass('bottom');
+    }
   });
 
-  $("#webimages").click(function(){
-    $(".webimg").show('1000');
-    $(".cardimg , .appimg").hide('3000');
-  });
+  
 });
-
