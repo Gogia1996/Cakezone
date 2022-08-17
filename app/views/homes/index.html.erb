@@ -5,6 +5,68 @@
   .margin{
     margin-top: 0px;
   }
+  .btn-play{
+    position: relative;
+    display: block;
+    box-sizing: content-box;
+    width: 16px;
+    height: 26px;
+    border-radius: 100%;
+    border: none;
+    outline: none !important;
+    padding: 18px 20px 20px 28px;
+    background: #FFFFFF;
+    -webkit-animation: pulse 2s infinite;
+  animation-delay: 5s
+  }
+  .btn-play::before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 100%;
+    animation: pulse-border 1500ms ease-out infinite;
+  }
+  @keyframes pulse {
+  0% {
+    transform: scaleX(1)
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05)
+  }
+  to {
+    transform: scaleX(1)
+  }
+}
+  .btn-play span{
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    left: -1px;
+    border-left: 16px solid #E88F2A;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+  }
+  .nav-item{
+    z-index: 1000;
+  }
+  .nav-item a{
+    border-radius: 0px !important;
+  }
+  
+  
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #E88F2A !important;
+  }
+  
 </style>
 
 <!-- Home section -->
@@ -40,25 +102,25 @@
       </div>
       <div class="row">
         <div class="col-lg-5">
-          <img src="/assets/about.jpg" class="img-fluid">
+          <img src="/assets/about.jpg" class="img-fluid h-100">
         </div>
         <div class="col-lg-6 pb-5">
           <h4 class="mb-4">Tempor erat elitr rebum clita. Diam dolor diam ipsum erat lorem sed stet labore lorem sit clita duo</h4>
-          <p class="mb-5">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
+          <p class="mb-5 about-section">Tempor erat elitr at rebum at at clita. Diam dolor diam ipsum et tempor sit. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet magna</p>
           <div class="row">
             <div class="col-sm-6">
               <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
                 <i class="fa fa-heartbeat fa-2x text-white"></i>
               </div>
               <h4 class="text-uppercase">100% Healthy</h4>
-              <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+              <p class="mb-0 about-section">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
             </div>
             <div class="col-sm-6">
               <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
                 <i class="fa fa-award fa-2x text-white"></i>
               </div>
               <h4 class="text-uppercase">Award Winning</h4>
-              <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
+              <p class="mb-0 about-section">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
             </div>
           </div>
         </div>
@@ -79,7 +141,7 @@
           </div>
           <div class="ps-4">
             <h6 class="text-primary text-uppercase">Our Experience</h6>
-            <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+            <h1 class="display-5 text-white mb-0 count" data-toggle="counter-up">12345</h1>
           </div>
         </div>
       </div>
@@ -130,21 +192,21 @@
       <h1 class="display-4 text-uppercase">Explore Our Cakes</h1>
     </div>
     <div class="tab-class text-center">
-       <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
+      <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
         <li class="nav-item">
-          <a class="nav-link text-white active p-2" data-bs-toggle="pill" href="#tab-1">Birthday</a>
+          <a href="#tab-1" class="nav-link text-white active-tab p-2 tab-1" data-bs-toggle="pill" >Birthday</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white p-2" data-bs-toggle="pill" href="#tab-2">Wedding</a>
+          <a class="nav-link text-white p-2 tab-2" data-bs-toggle="pill" href="#tab-2">Wedding</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white p-2" data-bs-toggle="pill" href="#tab-3">Custom</a>
+          <a class="nav-link text-white p-2 tab-3" data-bs-toggle="pill" href="#tab-3">Custom</a>
         </li>
-       </ul>
+      </ul>
     </div>
     <div class="tab-content">
       <!-- Birthday Cake tab section -->
-      <div id="tab-1" class="tab-pane fade p-0 active show">
+      <div id="tab-1" class="tab-pane fade p-0 show tab-content-1 active">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -222,7 +284,7 @@
       </div>
 
       <!-- Wedding cake tab section -->
-      <div id="tab-2" class="tab-pane fade p-0 active d-none">
+      <div id="tab-2" class="tab-pane fade p-0 hide tab-content-2">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -300,7 +362,7 @@
       </div>
 
       <!-- custom cake tab section -->
-      <div id="tab-3" class="tab-pane fade p-0 active d-none">
+      <div id="tab-3" class="tab-pane fade p-0 hide tab-content-3">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -512,5 +574,116 @@
       <h2 class="text-primary font-secondary">Testimonial</h2>
       <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
     </div>
+    <div class="owl-carousel testimonial-carousel owl-loaded owl-drag">
+                
+                
+                
+                
+            <div class="owl-stage-outer"><div class="owl-stage" style="transition: all 1.5s ease 0s; width: 3870px; transform: translate3d(-1548px, 0px, 0px);"><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-4.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item active" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item active center" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item active" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-4.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div><div class="owl-item cloned" style="width: 342px; margin-right: 45px;"><div class="testimonial-item bg-dark text-white border-inner p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img class="img-fluid flex-shrink-0" src="/assets/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                        <div class="ps-3">
+                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
+                    </p>
+                </div></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+
+
   </div>
 </div>
+
+<a href="#" class="btn btn-primary border-inner py-3 fs-4 back-to-top float-end bottom"><i class="bi bi-arrow-up"></i></a>
+
