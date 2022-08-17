@@ -14,10 +14,33 @@
  */
 @import "bootstrap";
 
-
+body{
+  font-family: 'Oswald';
+}
 .hero-header {
   background: url("hero.jpg") top right no-repeat;
    background-size: cover;
+}
+.navbar-nav>.nav-item>a:hover {
+  color: #E88F2A !important;
+}
+.navbar-nav>.active-item>a{
+  color:#E88F2A !important;
+}
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 30px;
+  bottom: 0;
+  border-radius: 0;
+  z-index: 99;
+}
+.bottom{
+  display:block;
+  position:fixed !important;
+}
+.about-section{
+  color: #656565;
 }
 .service::after{
   position: absolute;
@@ -42,9 +65,34 @@
     font-size: 2.5rem;
   }
   .btn-primary{
-    color: #000;
+    color: #FFFFFF;
     background-color: #E88F2A;
     border-color: #E88F2A;
+  }
+  .btn-primary:hover{
+    color: #000;
+    background-color: #eda555;
+    border-color: #ea9a3f;
+  }
+  .owl-dots{
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .owl-dot{
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    width: 10px;
+    height: 25px;
+    background: #DDDDDD;
+    transition: .5s;
+  }
+  .testimonial-carousel .owl-item .testimonial-item {
+    opacity: .1;
+    transition: .5s;
   }
   a{
   color: #E88F2A;
@@ -76,18 +124,15 @@
 .team-overlay{
  opacity: 0;
 }
-.team-overlay:hover{
+.team-item:hover .team-overlay {
   opacity: 1;
-  transition: .5s;
 }
 .team-item:hover img{
-  transition: .5s;
+  transform: scale(1.1);
   filter: blur(4px);
 }
-.team-item:hover{
-  transform: scale(1.1);
-  transition: all 0.8s ease-in-out;
-  overflow: hidden;
+.team-item img{
+  transition: .5s;
 }
 .text-primary{
   color: #E88F2A !important;
@@ -113,4 +158,9 @@
 }
 .margin{
   margin-top:-3rem;
+}
+.scroll{
+  position: sticky;
+    top: 0;
+    z-index: 1020;
 }

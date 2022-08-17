@@ -1,19 +1,26 @@
+<div class="container text-end mt-5">
+  <% if current_user.try(:admin?) %>
+    <%= link_to "Create", new_cake_path,  class:"btn btn-primary border-inner py-3 px-5 text-white ml-5"%>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
      <% @cakes.each do |cake| %>
        <div class="col-lg-6 col-md-12 col-xs-12 p-3">
           <div class="border border-dark">
             <h2 class="text-center">
-              <%= link_to cake.name, class: 'category-title' %><br>
+              <%= link_to cake.name, cake_path(cake.id) ,:html => {:class => 'category-title'} %>
+
             </h2>
             <div class="mt-5 ml-4 d-flex">
-              <p class="mb-0"> Description:</p>
-              <%= link_to cake.description %>
+              <p class="mb-0"> Price:</p>
+              <%= cake.price %>
             </div>
+            
           </div>
         </div>
      <% end %>
-     
-    <% if current_user.admin? %>
-     <%= link_to "Create", new_cake_path,  class:"btn btn-primary border-inner py-3 px-5 text-white"%>
-    <% end %>
+   
   </div>
 </div>
