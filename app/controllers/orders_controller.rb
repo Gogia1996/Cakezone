@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :set_carts
 
   def new
     @order = Order.new
@@ -10,20 +9,22 @@ class OrdersController < ApplicationController
   end
 
   def set_carts
-    debugger
     @order = Order.create(user_id: current_user.id, total: 0, state: 'cart')
-    debugger
     @cake= Cake.find(params[:cake_id])
-    debugger
     @lineitem = LineItem.create(cake_id:@cake.id,order_id: @order.id, quantity: 1, total:@cake.price)
-    debugger
     redirect_to carts_show_path
   end
 
     
   def checkout
-    @address = Address.new
     render 'form'
+   @address = Address.new(address_params)
+
+    if @address.save
+      @address = Address.create(user_id: current_user.id)
+      @order = Order.find(params[:order_id])
+      @order = Order.update(order_id:@order.id,state:'complated')
+    end
   end
 
   private
@@ -34,5 +35,9 @@ class OrdersController < ApplicationController
 
   def line_params
     params.require(:line_item).permit(:cake_id, :quantity, :total)
+  end
+
+  def address_params
+    params.require(:address).permit(:user_id,:first_name,:last_name,:city,:country,:state,:pincode,:address)
   end
 end

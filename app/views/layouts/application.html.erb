@@ -46,3 +46,18 @@
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+
+
+<script type="text/javascript">
+
+function calc() {
+  var quantity = $(".quantity").val();
+  var cakeprice = $(".cakeprice").val();
+  var total = parseFloat(quantity) * cakeprice;
+  if (!isNaN(total))
+    $(".total") = total;
+}
+
+
+</script>
