@@ -6,18 +6,20 @@
 
 <div class="container">
   <div class="row">
-     <% @cakes.each do |cake| %>
+     <% @cake.each do |cake| %>
        <div class="col-lg-6 col-md-12 col-xs-12 p-3">
           <div class="border border-dark">
             <h2 class="text-center">
               <%= link_to cake.name, cake_path(cake.id) ,:html => {:class => 'category-title'} %>
-
             </h2>
-            <div class="mt-5 ml-4 d-flex">
-              <p class="mb-0"> Price:</p>
-              <%= cake.price %>
+            <div class="mt-5 ml-4">
+               <%= image_tag cake.image , class:"img-fluid" %> 
             </div>
-            
+            <div class="mt-5  d-flex justify-content-center">
+              <p class="mb-0 shadow-lg p-3 mb-5 bg-body rounded"> Price:
+                <%= cake.price %>
+              </p>
+            </div>
           </div>
         </div>
      <% end %>

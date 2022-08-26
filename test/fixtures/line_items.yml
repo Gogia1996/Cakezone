@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cake_id: one
+  order_id: one
+  quantity: 1
+  total: 9.99
+
+two:
+  cake_id: two
+  order_id: two
+  quantity: 1
+  total: 9.99

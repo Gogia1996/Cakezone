@@ -130,14 +130,12 @@
         <li class="nav-item <%= 'active-item' if current_page?(cakes_path ) %>">
           <%= link_to "Cakes", cakes_path,  class:"text-white nav-link"%>
         </li>
+        <li class="nav-item <%= 'active-item' if current_page?(set_carts_path) %>">
+          <%= link_to "Cart", carts_show_path,  class:"text-white nav-link"%>
+        </li>
         <% if user_signed_in? %> 
-          <li class="nav-item <%= 'active-item' if current_page?(cakes_path ) %>">
-            <%= link_to "Order Now", cakes_path,  class:"text-white nav-link"%>
-          </li>
-        <% end %>
-        <% if user_signed_in? %> 
-          <li class="nav-item <%= 'active-item' if current_page?(cakes_path ) %>">
-            <%= link_to "Shop Now", cakes_path,  class:"text-white nav-link"%>
+          <li class="nav-item">
+            <%= link_to "Logout",  destroy_user_session_path, method: :delete,  class:"text-white nav-link"%>
           </li>
         <% end %>
       </ul>

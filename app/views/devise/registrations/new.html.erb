@@ -1,33 +1,78 @@
-<div class="container mt-5 border">
-  <div class="row ms-5">
-    <h2 class="text-center mb-5">Sign up</h2>
+<style>
+  .input-group-addon:last-child {
+      border-left: 0;
+      height: 36px;
+      padding-right: 25px;
+  }
+  .login-sec .field input {
+      width: 90%;
+  }
+  #app_user_password {
+    width: 96%;
+  }
+  #toggle-password-id {
+    width: 20px;
+    margin-left: -32px;
+  }
+  .form-control {
+    font-size: 14px;
+    color: black;
+  }
+  .well{
+    padding: 15px;
+    border-radius: 0;
+    border: 1px solid #9999994f;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+    -webkit-box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    background: transparent;
+  }
+  .navbar{
+  background: rgba(25, 28, 31, 0.8);
+  }
+  #header{
+    height:71px !important;
+  }
+</style>
 
+<div class="login-header text-center">
+  <p>
+    <h1>Sign up!</h1>
+    <hr>
+  </p>
+</div>
 
+<div class="row justify-content-center mb-4 pl-3 w-100">
+  <div class="well col-md-5 col-md-offset-4 login-sec">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="field form-group">
-        <%= f.label :email , class:"mb-3" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control w-50" %>
+       <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field pl-3">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", style: "width:100%" %>
       </div>
 
-      <div class="field mt-3 form-group">
-        <%= f.label :password , class:"mt-3"%>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" , class:"form-control w-50"%>
+      <div class="field pl-3 mt-2">
+          <%= f.label :password, 'Password' %>
+         
+          <%= f.password_field :password, autocomplete: 'current-password', class: "form-control", style: "width:100%"%>
       </div>
 
-      <div class="field mt-3 form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control w-50" %>
+      <div class="field pl-3 mt-2">
+       
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control",  style: "width:100%" %>
+        
       </div>
 
-      <div class="actions mb-5 mt-3">
-        <%= f.submit "Sign up" , :class=>"btn bg-primary text-white"%>
+      <div class="actions pl-3 mt-3">
+        <%= f.submit "Sign up", class: 'btn btn-primary text-white  w-100'%>
       </div>
     <% end %>
+
   </div>
 </div>
+
+
 

@@ -15,6 +15,9 @@ $(function() {
       $('.back-to-top').removeClass('bottom');
     }
   });
+  $("#quantity").click(function(){
+   alert("hello");
+  });
 
   
 });

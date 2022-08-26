@@ -1,20 +1,23 @@
 class CakesController < ApplicationController
+  before_action :set_carts_url
+  
+
   def index
-    @cakes=Cake.all
+    @cake =Cake.all
   end
 
   def show
-    @cakes = Cake.find(params[:id])
+    @cake = Cake.find(params[:id])
   end
   
   def new
-    @cakes=Cake.new
+    @cake = Cake.new
   end
 
   def create
-    @cakes = Cake.new(cake_params)
+    @cake = Cake.new(cake_params)
 
-    if @cakes.save
+    if @cake.save
       redirect_to cakes_path, notice: 'Cake was successfully created.'
     else
       render 'new'
