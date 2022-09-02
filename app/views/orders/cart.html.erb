@@ -21,14 +21,6 @@
               <%= f.number_field :total  ,class:'pe-none' %>
               <%= f.submit %>
            <% end %>
-            
-            <li class="total-price">
-              <%= number_field_tag 'total-price', line_item.total,class:"quantity pe-none total_price"%>
-              <div class= "total_price">
-               <h1>
-               </h1>
-              </div>
-            </li>
           </div>
           <div class="mt-3 text-center">
             <%= link_to  "Checkout", checkout_path,:class=>"btn btn-primary border-inner p-3 mb-2"%>

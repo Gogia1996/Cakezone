@@ -54,7 +54,7 @@
 $(document).ready(function(){
   $("#line_item_quantity").change(function(){
     $("#line_item_quantity").val()* $("#line_item_total").val();
-    $('div.total_price').html($("#line_item_quantity").val()* $("#line_item_total").val());
+    $(':input[name="line_item[total]"]').val($("#line_item_quantity").val()* $("#line_item_total").val());
   });
 });
 
