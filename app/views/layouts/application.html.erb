@@ -51,13 +51,12 @@
 
 <script type="text/javascript">
 
-function calc() {
-  var quantity = $(".quantity").val();
-  var cakeprice = $(".cakeprice").val();
-  var total = parseFloat(quantity) * cakeprice;
-  if (!isNaN(total))
-    $(".total") = total;
-}
+$(document).ready(function(){
+  $("#line_item_quantity").change(function(){
+    $("#line_item_quantity").val()* $("#line_item_total").val();
+    $('div.total_price').html($("#line_item_quantity").val()* $("#line_item_total").val());
+  });
+});
 
 
 </script>

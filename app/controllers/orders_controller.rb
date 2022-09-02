@@ -5,26 +5,24 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @Order = Order.create(order_params)
+    @Order = Order.new(order_params)
   end
 
-  def set_carts
-    @order = Order.create(user_id: current_user.id, total: 0, state: 'cart')
-    @cake= Cake.find(params[:cake_id])
-    @lineitem = LineItem.create(cake_id:@cake.id,order_id: @order.id, quantity: 1, total:@cake.price)
-    redirect_to carts_show_path
-  end
 
-    
+  def cart
+    order = Order.create(user_id: current_user.id, total: 0, state: 'cart')
+    line_item = LineItem.create(cake_id: params[:cake_id], order_id: order.id, quantity: 1, total: params[:price])
+    @line_items = order.line_items
+  end   
+
   def checkout
-    render 'form'
-   @address = Address.new(address_params)
+    @address = Address.new
+  end
 
-    if @address.save
-      @address = Address.create(user_id: current_user.id)
-      @order = Order.find(params[:order_id])
-      @order = Order.update(order_id:@order.id,state:'complated')
-    end
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to cakes_path
   end
 
   private
@@ -34,10 +32,6 @@ class OrdersController < ApplicationController
   end
 
   def line_params
-    params.require(:line_item).permit(:cake_id, :quantity, :total)
-  end
-
-  def address_params
-    params.require(:address).permit(:user_id,:first_name,:last_name,:city,:country,:state,:pincode,:address)
+    params.require(:line_item).permit(:cake_id, :order_id,  :quantity, :total)
   end
 end

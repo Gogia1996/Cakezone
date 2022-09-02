@@ -1,3 +1,9 @@
+<style>
+  .image{
+    height: 345px;
+  }
+</style>
+
 <div class="container text-end mt-5">
   <% if current_user.try(:admin?) %>
     <%= link_to "Create", new_cake_path,  class:"btn btn-primary border-inner py-3 px-5 text-white ml-5"%>
@@ -7,17 +13,17 @@
 <div class="container">
   <div class="row">
      <% @cake.each do |cake| %>
-       <div class="col-lg-6 col-md-12 col-xs-12 p-3">
-          <div class="border border-dark">
-            <h2 class="text-center">
+       <div class="col-lg-4 col-md-6 col-xs-12 p-3">
+          <div class="border border-1">
+            <h2 class="text-center my-3">
               <%= link_to cake.name, cake_path(cake.id) ,:html => {:class => 'category-title'} %>
             </h2>
             <div class="mt-5 ml-4">
-               <%= image_tag cake.image , class:"img-fluid" %> 
+               <%= image_tag cake.image , class:"rounded mx-auto d-block img-fluid image" %> 
             </div>
             <div class="mt-5  d-flex justify-content-center">
-              <p class="mb-0 shadow-lg p-3 mb-5 bg-body rounded"> Price:
-                <%= cake.price %>
+              <p class="mb-0 category-title bg-primary p-3 mb-5 bg-body rounded text-white"> Price:
+                $<%= cake.price %>
               </p>
             </div>
           </div>

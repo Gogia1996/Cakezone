@@ -1,5 +1,4 @@
 class CakesController < ApplicationController
-  before_action :set_carts_url
   
 
   def index

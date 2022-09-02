@@ -1,15 +1,19 @@
-
+<style>
+  .image{
+    height: 345px;
+  }
+</style>
 
 <div class="container-fluid mt-5 p-0">
   <div class="container">
     <div class="row border">
-      <div class="col-lg-4 d-flex">
-        <p class="mt-1 ms-3 show">
+      <div class="col-lg-4 d-flex p-0">
+        <p class="ms-3 show">
           <% @cake.image %>
-          <%= image_tag @cake.image , class:"img-fluid" %> 
+          <%= image_tag @cake.image , class:"rounded mx-auto d-block img-fluid image mt-3" %> 
         </p>
       </div>
-      <div class="col-lg-8 ps-5">
+      <div class="col-lg-8 ps-5 mt-3">
         <p class="mt-1 ms-3 show">
           <%= @cake.name %> 
         </p>
@@ -23,12 +27,7 @@
           <p>Price:$</p>
           <p><%= @cake.price %> </p>
         </div>
-    
-        <%#= form_with url: set_carts_path, method: :post do |f| %>
-          <%#= f.hidden_field :@cake_id %>
-          <%#= f.submit  "Add to Cart", :class=>"btn btn-primary border-inner p-3 mt-4 float-end"%>
-        <%# end %>
-        <%= link_to "Add to Cart", set_carts_path(cake_id: @cake.id), method: :post, class:"btn btn-primary border-inner p-3 mt-4 float-end" %>
+        <%= link_to "Add to Cart", cart_path(cake_id: @cake.id, price: @cake.price), class:"btn btn-primary border-inner p-3 mt-4" %>
       </div>
     </div>
   </div>
