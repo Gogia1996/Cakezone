@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/index'
   get 'contacts/index'
   get 'testimonials/index'
   get 'services/index'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   root 'homes#index'
   get 'cart' , to: 'orders#cart'
   get 'checkout' , to: 'orders#checkout'
+  get 'history' , to: 'orders#history'
   resources :orders
   resources :addresses
   resources :line_items

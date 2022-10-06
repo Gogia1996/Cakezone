@@ -135,13 +135,16 @@
         </li>
         <li class="nav-item">
           <% if current_user.try(:admin?) %>
-            <%= link_to "Order", new_cake_path,  class:"text-white nav-link"%>
+            <%= link_to "Order", orders_path,  class:"text-white nav-link"%>
           <% end %>
         </li>
         <li class="nav-item">
           <% if current_user.try(:admin?) %>
-            <%= link_to "Users", new_cake_path,  class:"text-white nav-link"%>
+            <%= link_to "Users", users_index_path,  class:"text-white nav-link"%>
           <% end %>
+        </li>
+        <li class="nav-item <%= 'active-item' if current_page?(history_path) %>">
+          <%= link_to "Order History", history_path,  class:"text-white nav-link"%>
         </li>
         <% if user_signed_in? %> 
           <li class="nav-item">

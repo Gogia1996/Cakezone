@@ -1,0 +1,46 @@
+<div class="container-fluid pl-2">
+  <div class="row border-bottom border-secondary">
+    <div class="col-lg-2">
+      <h3>Id</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>State</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>Created At</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>Total Order</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>Quantity</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>Total</h3>
+    </div>
+  </div>
+  <% @orders.each do |order|%>
+    <div class="row border-bottom border-secondary">
+        <div class="col-lg-2 border-end border-secondary">
+          <%= order.id %> 
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= order.state %>
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= order.created_at %>
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= order.total %>
+        </div>
+        <% order.line_items.each do |item| %>
+          <div class="col-lg-2 border-end border-secondary">
+            <%= item.quantity %>
+          </div>
+          <div class="col-lg-2 border-end border-secondary">
+            <%= item.total %>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>

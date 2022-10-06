@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row border-bottom border-secondary">
+    <div class="col-lg-2 border-end border-secondary">
+      <h3>User id</h3>
+    </div>
+    <div class="col-lg-2 border-end border-secondary">
+      <h3>User-Email</h3>
+    </div>
+    <div class="col-lg-2 border-end border-secondary">
+      <h3>FirstName</h3>
+    </div>
+    <div class="col-lg-2 border-end border-secondary">
+      <h3>Lastname</h3>
+    </div>
+    <div class="col-lg-2">
+      <h3>Order count</h3>
+    </div>
+  </div>
+  <% @users.each do |user| %>
+    <div class="row border-bottom border-secondary">
+        <div class="col-lg-2 border-end border-secondary">
+           <%= user.id %>
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= user.email %>
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= user.first_name %>
+        </div>
+        <div class="col-lg-2 border-end border-secondary">
+          <%= user.last_name %>
+        </div>
+        <% user.orders.each do |order| %>
+          <div class="col-lg-2">
+            <%=  %>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>

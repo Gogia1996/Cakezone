@@ -1,5 +1,8 @@
 class LineItemsController < ApplicationController
-
+ 
+  def edit
+  end
+  
   def update
     @line_item = LineItem.find(params[:id])
     @line_item.update(line_params)
@@ -7,7 +10,6 @@ class LineItemsController < ApplicationController
 
   private
   def line_params
-    params.require(:line_item).permit(:quantity, :total)
   end
 
   
