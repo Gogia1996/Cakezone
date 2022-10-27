@@ -11,10 +11,10 @@
         <div class="row mt-5">
           <div class="col-lg-12 d-flex cart">
             <li>
-              <%= line_item.cake.name %>
+              <%= image_tag line_item.cake.image , class:"img-fluid" %>
             </li>
             <li>
-              <%= image_tag line_item.cake.image , class:"img-fluid" %>
+              <%= line_item.cake.name %>
             </li>
             <%= form_for line_item  do |f| %>
               <%= f.number_field :quantity %>
@@ -30,8 +30,5 @@
         </div>
       </div>
     <% end %>
-
-
-         
   </ul>
 </div>

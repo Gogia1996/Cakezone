@@ -1,3 +1,12 @@
+<style type="text/css">
+  .nav-item {
+    z-index: 1000;
+  }
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #E88F2A !important;
+  }
+</style>
+
 <div class="container-fluid bg-dark bg-img p-5 mb-5">
   <div class="row">
     <div class="col-12 text-center">
@@ -18,21 +27,21 @@
       <h1 class="display-4 text-uppercase">Explore Our Cakes</h1>
     </div>
     <div class="tab-class text-center">
-       <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
+      <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
         <li class="nav-item">
-          <a class="nav-link text-white active p-2" data-bs-toggle="pill" href="#tab-1">Birthday</a>
+          <a href="#tab-1" class="nav-link text-white active-tab p-2 tab-1" data-bs-toggle="pill" >Birthday</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white p-2" data-bs-toggle="pill" href="#tab-2">Wedding</a>
+          <a class="nav-link text-white p-2 tab-2" data-bs-toggle="pill" href="#tab-2">Wedding</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white p-2" data-bs-toggle="pill" href="#tab-3">Custom</a>
+          <a class="nav-link text-white p-2 tab-3" data-bs-toggle="pill" href="#tab-3">Custom</a>
         </li>
-       </ul>
+      </ul>
     </div>
     <div class="tab-content">
       <!-- Birthday Cake tab section -->
-      <div id="tab-1" class="tab-pane fade p-0 active show">
+      <div id="tab-1" class="tab-pane fade p-0 show tab-content-1 active">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -110,7 +119,7 @@
       </div>
 
       <!-- Wedding cake tab section -->
-      <div id="tab-2" class="tab-pane fade p-0 active d-none">
+      <div id="tab-2" class="tab-pane fade p-0 hide tab-content-2">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -188,7 +197,7 @@
       </div>
 
       <!-- custom cake tab section -->
-      <div id="tab-3" class="tab-pane fade p-0 active d-none">
+      <div id="tab-3" class="tab-pane fade p-0 hide tab-content-3">
         <div class="row">
           <div class="col-lg-6 mb-4">
             <div class="d-flex">
@@ -268,5 +277,9 @@
   </div>
 </div>
 
-
+<div>
+  <h2 class="text-center my-3">
+    <%= link_to 'More Cakes', cakes_path , class: "bg-dark p-3 rounded border-inner text-white" %>
+  </h2>
+</div>
 <!-- menu&pricing section end -->

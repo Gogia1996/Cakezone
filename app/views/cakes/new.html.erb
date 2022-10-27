@@ -6,6 +6,17 @@
 
 <div class="container mt-5">
   <div class="row">
+    <% if @cake.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@cake.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+        <ul>
+          <% @cake.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
   <div class="col-lg-12 pl-2">
     <%= form_for @cake do |f| %>
@@ -21,18 +32,19 @@
         <div class="col-lg-6">
           <%= f.text_field :price ,placeholder:'Price', class:'w-100 form-control', :required => 'required'%>
         </div>
-        <div class="col-lg-6">
-            
-              
+        <div class="col-lg-6 d-flex">
+          <p class="m-2">Category:</p>
           <%= f.select :category, [["birthday", "birthday"], ["custom", "custom"], ["wedding", "wedding"]], {prompt: "Select"}, class: "w-100 form-control form-select", required: true %>
         </div>
 
       </div>
       <div class="row mt-5">
         <div class="col-lg-6">
-          <%= f.label :image, "Image:", class: "block text-sm font-medium text-gray-700 mt-1 ms-2" %>
-          <div class="mt-1 ms-2">
+          <div class="d-flex">
+            <%= f.label :image, "Image:", class: "block text-sm font-medium text-gray-700 mt-1 mx-2" %>
             <%= f.file_field :image %></br>
+          </div>
+          <div class="mt-1 ms-2">
             <%= f.submit  "Create", :class=>"btn btn-primary border-inner mt-3 w-100"%>
           </div>
         </div>
@@ -42,3 +54,4 @@
   </div>
   </div>
 </div>
+

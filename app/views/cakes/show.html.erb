@@ -2,6 +2,9 @@
   .image{
     height: 345px;
   }
+  .cart-btn:hover{
+    color: white;
+  }
 </style>
 
 <div class="container-fluid mt-5 p-0">
@@ -14,20 +17,23 @@
         </p>
       </div>
       <div class="col-lg-8 ps-5 mt-3">
-        <p class="mt-1 ms-3 show">
+        <h1 class="mt-1 ms-3 show text-primary">
           <%= @cake.name %> 
-        </p>
+        </h1>
         <p class="mt-1 ms-3 show">
           <%= @cake.description %> 
         </p>
-        <p class="mt-1 ms-3 show">
-          <%= @cake.category%> 
-        </p>
         <div class="mt-1 ms-3 show d-flex">
-          <p>Price:$</p>
+          <p class="me-2">Category: </p>
+          <p><%= @cake.category%></p>
+        </div>
+        <div class="mt-1 ms-3 show d-flex">
+          <p>Price: $</p>
           <p><%= @cake.price %> </p>
         </div>
-        <%= link_to "Add to Cart", cart_path(cake_id: @cake.id, price: @cake.price), class:"btn btn-primary border-inner p-3 mt-4" %>
+        <% if user_signed_in? %>
+          <%= link_to "Add to Cart", cart_path(cake_id: @cake.id, price: @cake.price), class:"btn btn-primary border-inner p-3 mt-4 cart-btn" %>
+        <% end %>
       </div>
     </div>
   </div>

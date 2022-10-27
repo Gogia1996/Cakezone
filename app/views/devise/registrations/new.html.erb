@@ -1,11 +1,11 @@
 <style>
   .input-group-addon:last-child {
-      border-left: 0;
-      height: 36px;
-      padding-right: 25px;
+    border-left: 0;
+    height: 36px;
+    padding-right: 25px;
   }
   .login-sec .field input {
-      width: 90%;
+    width: 90%;
   }
   #app_user_password {
     width: 96%;
@@ -60,25 +60,22 @@
         <%= f.label :email, 'Email' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", style: "width:100%" %>
       </div>
-
       <div class="field pl-3 mt-2">
-          <%= f.label :password, 'Password' %>
-         
-          <%= f.password_field :password, autocomplete: 'current-password', class: "form-control", style: "width:100%"%>
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, autocomplete: 'current-password', class: "form-control", style: "width:100%"%>
       </div>
-
       <div class="field pl-3 mt-2">
-       
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control",  style: "width:100%" %>
-        
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control",  style: "width:100%" %>
       </div>
-
       <div class="actions pl-3 mt-3">
         <%= f.submit "Sign up", class: 'btn btn-primary text-white  w-100'%>
       </div>
     <% end %>
-
+    <div class="actions pl-3 mt-2">
+      <p class="mb-0">If You have any account.please login</p>
+      <%= link_to 'Login', new_user_session_path ,class: 'btn btn-primary text-white  w-100'%>
+    </div>
   </div>
 </div>
 

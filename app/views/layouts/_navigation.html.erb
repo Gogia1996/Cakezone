@@ -131,7 +131,9 @@
           <%= link_to "Cakes", cakes_path,  class:"text-white nav-link"%>
         </li>
         <li class="nav-item <%= 'active-item' if current_page?(cart_path) %>">
-          <%= link_to "Cart", cart_path,  class:"text-white nav-link"%>
+          <%= link_to cart_path,  class:"text-white nav-link" do %>
+            <i class="bi bi-cart"></i>
+          <% end %>
         </li>
         <li class="nav-item">
           <% if current_user.try(:admin?) %>
